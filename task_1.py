@@ -1,8 +1,6 @@
 import pulp
 
-
 model = pulp.LpProblem("Maximize Production", pulp.LpMaximize)
-
 
 Lemonade = pulp.LpVariable('Lemonade', lowBound=0,
                            cat='Integer')
@@ -22,4 +20,5 @@ model.solve()
 
 print("Виробляти лимонаду:", Lemonade.varValue)
 print("Виробляти фруктового соку:", Fruit_juice.varValue)
-print("Сума:", Lemonade.varValue + Fruit_juice.varValue)
+print("Загальна кількість вироблених продуктів:",
+      Lemonade.varValue + Fruit_juice.varValue)
